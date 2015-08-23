@@ -1,0 +1,51 @@
+Máquina Turing
+
+-semelhante a autômatos finitos, mas possui acesso irrestrito há uma memória ilimitada
+- MT pode fazer tudo o que um computador real pode fazer, e até mais, já que
+não possui restrição de tamanho de memória ou de velocidade de processamento
+
+-Mesmo assim, existem problemas que não podem ser computados por uma MT
+
+MT: Uma fita infinita,um cabeçote de leitura,controle de estados,tabela de função de transição
+
+composta por uma tupla:
+
+MT = (Σ, Q, δ, q0, F, V, b, ->)
+Q = conjunto de estados
+V = conjunto de simbolos auxiliares
+Σ = alfabeto de simbolos
+q0 = estado inicial
+b = simbolo branco
+F = conjunto de estados finais
+δ = funções de transição
+-> = simbolo que indica o inicio da fita
+
+δ: Qx(Σ U V U {b,->}) -> Qx(Σ U V U {b,->})x{D,E}
+
+"um estado que le um simbolo, vai para outro estado,escreve um simbolo e
+nos diz a direçao = esquerda ou direita."
+
+δ = (estado,simbolo) = (estado,simbolo que escreve,direção)
+
+Exemplo:
+{(a+b)*/quantidade de a´s = quantidade de b´s}
+
+-> A B A B B A b
+
+δ(q->,->) = (q0,->,D)
+δ(q0,A) = (q2,X,D)
+δ(q0,B) = (q1,X,D)
+δ(q0,X) = (q0,X,D)
+δ(q0,b) = (qf,b,D)
+δ(q1,A) = (qX,X,E)
+δ(q1,B) = (q1,B,D)
+δ(q1,X) = (q1,X,D)
+δ(q2,A) = (q2,A,D)
+δ(q2,B) = (qx,X,E)
+δ(q2,X) = (q2,X,D)
+δ(qx,A) = (qX,A,E)
+δ(qx,B) = (qx,B,E)
+δ(qx,X) = (q0,X,D)
+
+
+
